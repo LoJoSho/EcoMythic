@@ -21,7 +21,7 @@ public class DropManager extends Drop implements IMultiDrop {
     public DropManager(MythicLineConfig config) {
         super(config.getLine(), config);
 
-        String str = config.getString(new String[] {"type", "t"}, dropVar);
+        String str = config.getString(new String[] {"type", "t", "item", "i"}, dropVar);
         ecoid = str;
     }
     /*

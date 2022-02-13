@@ -1,5 +1,7 @@
 # EcoMythic
 
+[PaperMC Forum Post](https://forums.papermc.io/threads/ecomythic-bring-ecoitems-to-mythicmobs.149/)
+
 **Features:**
 - No Extra Config Files
 - Easy implementation

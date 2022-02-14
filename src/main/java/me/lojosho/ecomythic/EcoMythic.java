@@ -1,6 +1,6 @@
 package me.lojosho.ecomythic;
 
-import me.lojosho.ecomythic.MythicMobs.MythicListener;
+import me.lojosho.ecomythic.mythicmobs.MythicListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;

@@ -1,4 +1,4 @@
-package me.lojosho.ecomythic.MythicMobs;
+package me.lojosho.ecomythic.mythicmobs;
 
 import io.lumine.xikage.mythicmobs.api.bukkit.events.MythicDropLoadEvent;
 import io.lumine.xikage.mythicmobs.drops.Drop;

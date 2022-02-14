@@ -1,6 +1,7 @@
 package me.lojosho.ecomythic;
 
 import me.lojosho.ecomythic.mythicmobs.MythicListener;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
@@ -8,12 +9,20 @@ import java.util.logging.Logger;
 public final class EcoMythic extends JavaPlugin {
     private static EcoMythic instance;
     private static Logger log = Logger.getLogger("EcoMythic");
+    private static Boolean ecoItems = false;
+    private static Boolean ecoArmor = false;
 
     @Override
     public void onEnable() {
         // Plugin startup logic
         instance = this;
         getServer().getPluginManager().registerEvents(new MythicListener(), this);
+        if (Bukkit.getPluginManager().getPlugin("EcoItems") != null) {
+            ecoItems = true;
+        }
+        if (Bukkit.getPluginManager().getPlugin("EcoArmor") != null) {
+            ecoArmor = true;
+        }
     }
 
     @Override
@@ -23,5 +32,11 @@ public final class EcoMythic extends JavaPlugin {
 
     public static EcoMythic getInstance() {
         return instance;
+    }
+    public static Boolean hasEcoItems() {
+        return ecoItems;
+    }
+    public static Boolean hasEcoArmor() {
+        return ecoArmor;
     }
 }

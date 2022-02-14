@@ -12,15 +12,13 @@ import io.lumine.xikage.mythicmobs.io.MythicLineConfig;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Locale;
-
 public class EcoArmorDropManager extends Drop implements IMultiDrop {
 
     private String ecoid;
     private ArmorSlot slot;
     /*
-     * Gets the String, attempts to get its Type. If there is an EcoItem that matches the value, then set ecoid to a
-     * internal string of an EcoItem for "get" method to get the item.
+     * Gets the String, attempts to get its ArmorSet. If there is an EcoArmor set that matches it & a proper armor slot is provided
+     * sets ecoid to internal id of the ArmorSet & slot to the ArmorSets ArmorSlot (Helmet, Chestplate, etc.)
      */
     public EcoArmorDropManager(MythicLineConfig config) {
         super(config.getLine(), config);
@@ -31,7 +29,11 @@ public class EcoArmorDropManager extends Drop implements IMultiDrop {
         slot = ArmorSlot.getSlot(str2);
     }
 
-
+    /*
+     * Attempts to get an EcoArmor and adds it to the droptable
+     * however, if its null, then it just returns air.
+     *
+     */
     @Override
     public LootBag get(DropMetadata dropMetadata) {
         LootBag loot = new LootBag(dropMetadata);

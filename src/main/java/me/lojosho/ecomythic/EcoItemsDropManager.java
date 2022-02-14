@@ -28,7 +28,6 @@ public class EcoItemsDropManager extends Drop implements IMultiDrop {
      * Attempts to get an EcoItem and adds it to the droptable
      * , however, if its null, then it just returns air.
      *
-     * Prevents NPE relating to it
      */
     @Override
     public LootBag get(DropMetadata dropMetadata) {

@@ -18,9 +18,11 @@ public final class EcoMythic extends JavaPlugin {
         instance = this;
         getServer().getPluginManager().registerEvents(new MythicListener(), this);
         if (Bukkit.getPluginManager().getPlugin("EcoItems") != null) {
+            log.info("Found EcoItems... Linking...");
             ecoItems = true;
         }
         if (Bukkit.getPluginManager().getPlugin("EcoArmor") != null) {
+            log.info("Found EcoArmor... Linking...");
             ecoArmor = true;
         }
         if (ecoItems == false && ecoArmor == false) {

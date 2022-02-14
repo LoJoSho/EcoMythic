@@ -37,6 +37,6 @@ zArmorDrop:
 
 ![Example Gif2](https://i.imgur.com/2csR4IF.gif)
 
-![EcoArmor Gif](https://i.imgur.com/WhRWWUb.gif)
+![EcoArmor Shard Gif](https://i.imgur.com/uNMzSzB.gif)
 
 ![EcoArmor Gif2](https://i.imgur.com/PIMqA67.gif)

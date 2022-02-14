@@ -23,6 +23,10 @@ public final class EcoMythic extends JavaPlugin {
         if (Bukkit.getPluginManager().getPlugin("EcoArmor") != null) {
             ecoArmor = true;
         }
+        if (ecoItems == false && ecoArmor == false) {
+            log.severe("Detecting no Eco plugins (EcoItems/EcoArmor). Shutting Down...");
+            getServer().getPluginManager().disablePlugin(instance);
+        }
     }
 
     @Override

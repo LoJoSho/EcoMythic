@@ -11,14 +11,14 @@ import io.lumine.xikage.mythicmobs.io.MythicLineConfig;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-public class DropManager extends Drop implements IMultiDrop {
+public class EcoItemsDropManager extends Drop implements IMultiDrop {
 
     private String ecoid;
     /*
      * Gets the String, attempts to get its Type. If there is an EcoItem that matches the value, then set ecoid to a
      * internal string of an EcoItem for "get" method to get the item.
      */
-    public DropManager(MythicLineConfig config) {
+    public EcoItemsDropManager(MythicLineConfig config) {
         super(config.getLine(), config);
 
         String str = config.getString(new String[] {"type", "t", "item", "i"}, dropVar);

@@ -2,7 +2,9 @@ package me.lojosho.ecomythic.mythicmobs;
 
 import io.lumine.xikage.mythicmobs.api.bukkit.events.MythicDropLoadEvent;
 import io.lumine.xikage.mythicmobs.drops.Drop;
-import me.lojosho.ecomythic.DropManager;
+import me.lojosho.ecomythic.EcoArmorDropManager;
+import me.lojosho.ecomythic.EcoItemsDropManager;
+import me.lojosho.ecomythic.EcoMythic;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -15,8 +17,12 @@ public class MythicListener implements Listener {
     @EventHandler
     public void onMythicDropLoad(MythicDropLoadEvent event)	{
         String dropName = event.getDropName();
-        if (dropName.equals("EcoItems")) {
-            Drop drop = new DropManager(event.getConfig());
+        if (EcoMythic.hasEcoItems() && dropName.equals("EcoItems")) {
+            Drop drop = new EcoItemsDropManager(event.getConfig());
+            event.register(drop);
+        }
+        if (EcoMythic.hasEcoArmor() && dropName.equals("EcoArmor")) {
+            Drop drop = new EcoArmorDropManager(event.getConfig());
             event.register(drop);
         }
     }

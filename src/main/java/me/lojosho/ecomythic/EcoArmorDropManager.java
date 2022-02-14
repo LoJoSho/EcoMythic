@@ -28,11 +28,7 @@ public class EcoArmorDropManager extends Drop implements IMultiDrop {
         String str = config.getString(new String[] {"type", "t", "armor", "a"}, dropVar);
         String str2 = config.getString(new String[] {"slot", "s"}, dropVar);
         ecoid = str;
-        if (ArmorSlot.getSlot(str2) == null) {
-            slot = null;
-        } else {
-            slot = ArmorSlot.getSlot(str2);
-        }
+        slot = ArmorSlot.getSlot(str2);
     }
 
 

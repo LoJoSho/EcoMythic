@@ -13,9 +13,7 @@
 - [EcoItems](https://github.com/Auxilor/EcoItems) (Recommend 3.27.3+)
 - [EcoArmor](https://github.com/Auxilor/EcoArmor) (Recommend 7.32.2+)
 
-### Examples:
-
-#### EcoItems
+#### EcoItems:
 ```yaml
 zzom:
   Type: ZOMBIE
@@ -26,7 +24,7 @@ zzom:
   - EcoItems{type=talisman_orccc_2} 1 1 #This is an invalid item. It will warn you if you put an item that isn't a valid EcoItem.
 ```
 
-#### EcoArmor
+#### EcoArmor:
 
 ```yaml
 zArmorDrop:

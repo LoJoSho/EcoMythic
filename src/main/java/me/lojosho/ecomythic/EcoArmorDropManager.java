@@ -12,6 +12,8 @@ import io.lumine.xikage.mythicmobs.io.MythicLineConfig;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Locale;
+
 public class EcoArmorDropManager extends Drop implements IMultiDrop {
 
     private String ecoid;
@@ -26,7 +28,11 @@ public class EcoArmorDropManager extends Drop implements IMultiDrop {
         String str = config.getString(new String[] {"type", "t", "armor", "a"}, dropVar);
         String str2 = config.getString(new String[] {"slot", "s"}, dropVar);
         ecoid = str;
-        slot = ArmorSlot.getSlot(str2);
+        if (ArmorSlot.getSlot(str2.toUpperCase(Locale.ROOT)) == null) {
+            slot = null;
+        } else {
+            slot = ArmorSlot.getSlot(str2.toUpperCase(Locale.ROOT));
+        }
     }
 
 

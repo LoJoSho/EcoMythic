@@ -28,10 +28,10 @@ public class EcoArmorDropManager extends Drop implements IMultiDrop {
         String str = config.getString(new String[] {"type", "t", "armor", "a"}, dropVar);
         String str2 = config.getString(new String[] {"slot", "s"}, dropVar);
         ecoid = str;
-        if (ArmorSlot.getSlot(str2.toUpperCase(Locale.ROOT)) == null) {
+        if (ArmorSlot.getSlot(str2) == null) {
             slot = null;
         } else {
-            slot = ArmorSlot.getSlot(str2.toUpperCase(Locale.ROOT));
+            slot = ArmorSlot.getSlot(str2);
         }
     }
 
@@ -40,12 +40,12 @@ public class EcoArmorDropManager extends Drop implements IMultiDrop {
     public LootBag get(DropMetadata dropMetadata) {
         LootBag loot = new LootBag(dropMetadata);
         if (ArmorSets.getByID(ecoid) == null) {
-            if (slot == null) {
-                EcoMythic.getInstance().getLogger().severe("Invalid Armor Slot in '" + ecoid + "', inserting air instead.");
-                loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
-                return loot;
-            }
             EcoMythic.getInstance().getLogger().severe("Could not find '" + ecoid + "' as a valid EcoArmor. Putting air in its place. Consider Fixing This!!!!!");
+            loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
+            return loot;
+        }
+        if (slot == null) {
+            EcoMythic.getInstance().getLogger().severe("Invalid Armor Slot in '" + ecoid + "', inserting air instead.");
             loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
             return loot;
         }

@@ -4,5 +4,7 @@ main: me.lojosho.ecomythic.EcoMythic
 api-version: 1.18
 authors: [ LoJoSho ]
 depend:
-  - EcoItems
   - MythicMobs
+softdepend:
+  - EcoItems
+  - EcoArmor

@@ -7,6 +7,7 @@
 - Easy implementation
 
 **Dependencies:**
+- [Paper](https://papermc.io/downloads) (Recommend 1.18.1)
 - [MythicMobs](https://mythiccraft.io/index.php?ewr-porta/) (Recommend 4.14.2+)
 - [Eco](https://github.com/Auxilor/eco) (Recommend 6.20.3+)
 

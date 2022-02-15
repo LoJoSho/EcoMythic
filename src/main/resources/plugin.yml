@@ -9,3 +9,4 @@ depend:
 softdepend:
   - EcoItems
   - EcoArmor
+  - StatTrackers

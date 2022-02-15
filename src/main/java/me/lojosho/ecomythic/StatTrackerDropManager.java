@@ -1,5 +1,6 @@
 package me.lojosho.ecomythic;
 
+import com.willfp.stattrackers.StatTrackersPlugin;
 import com.willfp.stattrackers.stats.Stat;
 import com.willfp.stattrackers.stats.Stats;
 import io.lumine.xikage.mythicmobs.adapters.bukkit.BukkitItemStack;
@@ -12,6 +13,7 @@ import io.lumine.xikage.mythicmobs.io.MythicLineConfig;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
 
 public class StatTrackerDropManager extends Drop implements IMultiDrop {
 
@@ -30,7 +32,7 @@ public class StatTrackerDropManager extends Drop implements IMultiDrop {
     @Override
     public LootBag get(DropMetadata dropMetadata) {
         LootBag loot = new LootBag(dropMetadata);
-        Stat stat = Stats.getByKey(NamespacedKey.fromString(statid));
+        Stat stat = Stats.getByKey(NamespacedKey.fromString(statid, (Plugin) StatTrackersPlugin.getInstance()));
         if (stat == null) {
             EcoMythic.getInstance().getLogger().severe("Could not find '" + statid + "' as a valid Tracker. Putting air in its place.");
             return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));

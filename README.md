@@ -8,10 +8,12 @@
 
 **Dependencies:**
 - [MythicMobs](https://mythiccraft.io/index.php?ewr-porta/) (Recommend 4.14.2+)
+- [Eco](https://github.com/Auxilor/eco) (Recommend 6.20.3+)
 
 **Soft Dependencies**
 - [EcoItems](https://github.com/Auxilor/EcoItems) (Recommend 3.27.3+)
 - [EcoArmor](https://github.com/Auxilor/EcoArmor) (Recommend 7.32.2+)
+- [StatTracker](https://github.com/Auxilor/StatTrackers) (Recommend 4.3.0+) 
 
 #### EcoItems:
 ```yaml
@@ -36,8 +38,19 @@ zArmorDrop:
   - EcoArmor{armor=reaper;slot=helmet} 1 1 #You need to specify the armor set, then either add that it's a shard or an armor piece/slot
 ```
 
+#### StatTracker:
+
+```yaml
+zArmorDrop:
+  Type: ZOMBIE
+  Drops:
+  - StatTrackers{stat=arrows_shot} #Alternatively, you can replace "stat" with "type", "t", "stat", or "s"
+```
+
 ![Example Gif2](https://i.imgur.com/2csR4IF.gif)
 
 ![EcoArmor Shard Gif](https://i.imgur.com/uNMzSzB.gif)
 
 ![EcoArmor Gif2](https://i.imgur.com/PIMqA67.gif)
+
+![StatTracker Gif](https://i.imgur.com/AtQDiP7.gif)

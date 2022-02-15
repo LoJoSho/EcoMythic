@@ -5,6 +5,7 @@ api-version: 1.18
 authors: [ LoJoSho ]
 depend:
   - MythicMobs
+  - eco
 softdepend:
   - EcoItems
   - EcoArmor

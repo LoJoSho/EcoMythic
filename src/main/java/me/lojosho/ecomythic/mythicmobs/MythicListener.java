@@ -5,6 +5,7 @@ import io.lumine.xikage.mythicmobs.drops.Drop;
 import me.lojosho.ecomythic.EcoArmorDropManager;
 import me.lojosho.ecomythic.EcoItemsDropManager;
 import me.lojosho.ecomythic.EcoMythic;
+import me.lojosho.ecomythic.StatTrackerDropManager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -23,6 +24,10 @@ public class MythicListener implements Listener {
         }
         if (EcoMythic.hasEcoArmor() && dropName.equals("EcoArmor")) {
             Drop drop = new EcoArmorDropManager(event.getConfig());
+            event.register(drop);
+        }
+        if (EcoMythic.hasstatTrackers() && dropName.equals("StatTrackers")) {
+            Drop drop = new StatTrackerDropManager(event.getConfig());
             event.register(drop);
         }
     }

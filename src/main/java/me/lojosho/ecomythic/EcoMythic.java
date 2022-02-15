@@ -11,6 +11,7 @@ public final class EcoMythic extends JavaPlugin {
     private static Logger log = Logger.getLogger("EcoMythic");
     private static Boolean ecoItems = false;
     private static Boolean ecoArmor = false;
+    private static Boolean statTrackers = false;
 
     @Override
     public void onEnable() {
@@ -25,7 +26,11 @@ public final class EcoMythic extends JavaPlugin {
             log.info("Found EcoArmor... Linking...");
             ecoArmor = true;
         }
-        if (ecoItems == false && ecoArmor == false) {
+        if (Bukkit.getPluginManager().getPlugin("StatTrackers") != null) {
+            log.info("Found StatTrackers... Linking...");
+            statTrackers = true;
+        }
+        if (ecoItems == false && ecoArmor == false && statTrackers == false) {
             log.severe("Detecting no Eco plugins (EcoItems/EcoArmor). Shutting Down...");
             getServer().getPluginManager().disablePlugin(instance);
         }
@@ -44,5 +49,8 @@ public final class EcoMythic extends JavaPlugin {
     }
     public static Boolean hasEcoArmor() {
         return ecoArmor;
+    }
+    public static Boolean hasstatTrackers() {
+        return statTrackers;
     }
 }

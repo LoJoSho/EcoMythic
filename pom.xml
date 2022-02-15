@@ -79,6 +79,12 @@
             <version>1.18.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.willfp</groupId>
+            <artifactId>eco</artifactId>
+            <version>6.20.3</version>
+            <scope>provided</scope>
+        </dependency>
         <!-- Isn't ideal, however, couldn't use the proper API from GitHub for whatever reason,
          The plugin itself is really easy to compile, then create a /lib
          folder and put the jar inside it. Change version below as needed. -->
@@ -95,6 +101,13 @@
             <version>7.32.2</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/EcoArmor v7.32.2.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.github.Auxilor</groupId>
+            <artifactId>StatTrackers</artifactId>
+            <version>4.3.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/StatTrackers v4.3.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>io.lumine.xikage</groupId>

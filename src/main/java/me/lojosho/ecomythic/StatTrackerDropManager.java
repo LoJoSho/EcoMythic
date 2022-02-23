@@ -41,8 +41,8 @@ public class StatTrackerDropManager extends Drop implements IMultiDrop {
          */
         if (stat == null) {
             EcoMythic.getInstance().getLogger().severe("Could not find '" + statid + "' as a valid Tracker. Putting air in its place.");
-            return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
+            return loot.add(dropMetadata, new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
         }
-        return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(stat.getTracker().getItemStack())));
+        return loot.add(dropMetadata, new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(stat.getTracker().getItemStack())));
     }
 }

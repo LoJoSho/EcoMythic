@@ -56,20 +56,20 @@ public class EcoArmorDropManager extends Drop implements IMultiDrop {
         LootBag loot = new LootBag(dropMetadata);
         if (ArmorSets.getByID(ecoid) == null) {
             EcoMythic.getInstance().getLogger().severe("Could not find '" + ecoid + "' as a valid EcoArmor set. Putting air in its place.");
-            return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
+            return loot.add(dropMetadata, new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
         }
         // Weird NPE fix? Need to check if its null, can't do shard != null.
         if (shard == null) {
             // do nothing
         } else {
             if (shard) {
-                return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(ArmorSets.getByID(ecoid).getAdvancementShardItem())));
+                return loot.add(dropMetadata, new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(ArmorSets.getByID(ecoid).getAdvancementShardItem())));
             }
         }
         if (slot == null) {
             EcoMythic.getInstance().getLogger().severe("Invalid Armor Slot in '" + ecoid + "', inserting air instead.");
-            return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
+            return loot.add(dropMetadata, new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
         }
-        return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(ArmorSets.getByID(ecoid).getItemStack(slot))));
+        return loot.add(dropMetadata, new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(ArmorSets.getByID(ecoid).getItemStack(slot))));
     }
 }

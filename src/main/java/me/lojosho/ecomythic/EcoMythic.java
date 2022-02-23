@@ -1,6 +1,7 @@
 package me.lojosho.ecomythic;
 
 import me.lojosho.ecomythic.mythicmobs.MythicListener;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -34,6 +35,8 @@ public final class EcoMythic extends JavaPlugin {
             log.severe("Detecting no Eco plugins. Shutting Down...");
             getServer().getPluginManager().disablePlugin(instance);
         }
+        // BStats
+        Metrics metrics = new Metrics(this, 14450);
     }
 
     @Override

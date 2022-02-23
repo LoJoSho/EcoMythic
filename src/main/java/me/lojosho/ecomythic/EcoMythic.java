@@ -30,7 +30,7 @@ public final class EcoMythic extends JavaPlugin {
             log.info("Found StatTrackers... Linking...");
             statTrackers = true;
         }
-        if (ecoItems == false && ecoArmor == false && statTrackers == false) {
+        if (!ecoItems && !ecoArmor && !statTrackers) {
             log.severe("Detecting no Eco plugins. Shutting Down...");
             getServer().getPluginManager().disablePlugin(instance);
         }

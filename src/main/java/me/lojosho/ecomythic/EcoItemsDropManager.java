@@ -36,7 +36,7 @@ public class EcoItemsDropManager extends Drop implements IMultiDrop {
     public LootBag get(DropMetadata dropMetadata) {
         LootBag loot = new LootBag(dropMetadata);
         if (EcoItems.getByID(ecoid) == null) {
-            EcoMythic.getInstance().getLogger().severe("Could not find '" + ecoid + "' as a valid EcoItem. Putting air in its place. Consider Fixing This!!!!!");
+            EcoMythic.getInstance().getLogger().severe("Could not find '" + ecoid + "' as a valid EcoItem, inserting air instead.");
             return loot.add(dropMetadata, new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
         }
         return loot.add(dropMetadata, new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(EcoItems.getByID(ecoid).getItemStack())));

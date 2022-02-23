@@ -55,7 +55,7 @@ public class EcoArmorDropManager extends Drop implements IMultiDrop {
     public LootBag get(DropMetadata dropMetadata) {
         LootBag loot = new LootBag(dropMetadata);
         if (ArmorSets.getByID(ecoid) == null) {
-            EcoMythic.getInstance().getLogger().severe("Could not find '" + ecoid + "' as a valid EcoArmor set. Putting air in its place.");
+            EcoMythic.getInstance().getLogger().severe("Could not find '" + ecoid + "' as a valid EcoArmor set, inserting air instead.");
             return loot.add(dropMetadata, new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
         }
         // Weird NPE fix? Need to check if its null, can't do shard != null.

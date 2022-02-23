@@ -25,21 +25,20 @@ public class EcoItemsDropManager extends Drop implements IMultiDrop {
         ecoid = str;
     }
     /*
-     * Attempts to get an EcoItem and adds it to the droptable
-     * , however, if its null, then it just returns air.
+     * Attempts to get an EcoItem and adds it to the droptable,
+     * however, if its null, then it just returns air.
      *
+     * EcoItems returns a null if the item that is gotten is an invalid item. Therefore, we check if it got a EcoItem,
+     * if it got a null, then we check if it's null. We then safely handle the null by replacing the dropped item with
+     * air/nothing.
      */
     @Override
     public LootBag get(DropMetadata dropMetadata) {
         LootBag loot = new LootBag(dropMetadata);
-        //EcoMythic.getInstance().getLogger().info("Attempting EcoItems Item: " + ecoid);
         if (EcoItems.getByID(ecoid) == null) {
             EcoMythic.getInstance().getLogger().severe("Could not find '" + ecoid + "' as a valid EcoItem. Putting air in its place. Consider Fixing This!!!!!");
-            loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
-            return loot;
+            return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
         }
-        loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(EcoItems.getByID(ecoid).getItemStack())));
-        //EcoMythic.getInstance().getLogger().info("Success Initialization of " + ecoid);
-        return loot;
+        return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(EcoItems.getByID(ecoid).getItemStack())));
     }
 }

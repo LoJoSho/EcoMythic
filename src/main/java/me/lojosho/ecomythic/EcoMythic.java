@@ -31,13 +31,14 @@ public final class EcoMythic extends JavaPlugin {
             statTrackers = true;
         }
         if (ecoItems == false && ecoArmor == false && statTrackers == false) {
-            log.severe("Detecting no Eco plugins (EcoItems/EcoArmor). Shutting Down...");
+            log.severe("Detecting no Eco plugins. Shutting Down...");
             getServer().getPluginManager().disablePlugin(instance);
         }
     }
 
     @Override
     public void onDisable() {
+        // do nothing
         // Plugin shutdown logic
     }
 

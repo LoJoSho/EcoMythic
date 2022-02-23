@@ -24,7 +24,8 @@ public class EcoArmorDropManager extends Drop implements IMultiDrop {
     private Boolean shard;
     /*
      * Gets the String, attempts to get its ArmorSet. If there is an EcoArmor set that matches it & a proper armor slot is provided
-     * sets ecoid to internal id of the ArmorSet & slot to the ArmorSets ArmorSlot (Helmet, Chestplate, etc.)
+     * sets ecoid to internal id of the ArmorSet & sets slot to the ArmorSets ArmorSlot (Helmet, Chestplate, etc.)
+     * Furthermore, if there is a shard, it will set it to true,
      */
     public EcoArmorDropManager(MythicLineConfig config) {
         super(config.getLine(), config);
@@ -55,24 +56,20 @@ public class EcoArmorDropManager extends Drop implements IMultiDrop {
         LootBag loot = new LootBag(dropMetadata);
         if (ArmorSets.getByID(ecoid) == null) {
             EcoMythic.getInstance().getLogger().severe("Could not find '" + ecoid + "' as a valid EcoArmor set. Putting air in its place.");
-            loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
-            return loot;
+            return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
         }
         // Weird NPE fix? Need to check if its null, can't do shard != null.
         if (shard == null) {
             // do nothing
         } else {
             if (shard) {
-                loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(ArmorSets.getByID(ecoid).getAdvancementShardItem())));
-                return loot;
+                return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(ArmorSets.getByID(ecoid).getAdvancementShardItem())));
             }
         }
         if (slot == null) {
             EcoMythic.getInstance().getLogger().severe("Invalid Armor Slot in '" + ecoid + "', inserting air instead.");
-            loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
-            return loot;
+            return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(new ItemStack(Material.AIR))));
         }
-        loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(ArmorSets.getByID(ecoid).getItemStack(slot))));
-        return loot;
+        return loot.add(new ItemDrop(this.getLine(), (MythicLineConfig) this.getConfig(), new BukkitItemStack(ArmorSets.getByID(ecoid).getItemStack(slot))));
     }
 }

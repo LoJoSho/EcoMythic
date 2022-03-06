@@ -1,5 +1,7 @@
 # EcoMythic
 
+**THIS FEATURE IS NOW MERGED INTO ECO! SIMPLY ADD eco{type=itemName}, THIS NEW SYSTEM LEVERAGES THE [Item Lookup System](https://plugins.auxilor.io/all-plugins/the-item-lookup-system). USE THAT INSTEAD!**
+
 [PaperMC Forum Post](https://forums.papermc.io/threads/ecomythic-bring-ecoitems-to-mythicmobs.149/)
 
 **Features:**
